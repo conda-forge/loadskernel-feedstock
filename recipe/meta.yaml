@@ -55,6 +55,7 @@ outputs:
       run:
         - python >=3.8 <3.11
         - mpi4py
+        - pyfmi
         - mayavi
         - traits
         - traitsui
@@ -62,7 +63,7 @@ outputs:
         - pytest
         - pytest-cov
         - jupyter
-        - jupyter-book==0.15.1
+        - jupyter-book ==0.15.1
         - {{ pin_subpackage('loadskernel', exact=True) }}
     test:
       imports:
