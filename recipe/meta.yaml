@@ -20,10 +20,10 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.8 <3.11
     - pip
   run:
-    - python >=3.8
+    - python >=3.8 <3.11
     - panelaero
     - matplotlib-base
     - numpy
@@ -51,14 +51,18 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.8
+        - python >=3.8 <3.11
       run:
-        - python >=3.8
+        - python >=3.8 <3.11
         - mpi4py
         - mayavi
         - traits
         - traitsui
         - pyface
+        - pytest
+        - pytest-cov
+        - jupyter
+        - jupyter-book==0.15.1
         - {{ pin_subpackage('loadskernel', exact=True) }}
     test:
       imports:
