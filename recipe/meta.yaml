@@ -55,7 +55,6 @@ outputs:
       run:
         - python >=3.8
         - mpi4py
-        - pyfmi
         - mayavi
         - traits
         - traitsui
