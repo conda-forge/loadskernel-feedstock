@@ -60,7 +60,6 @@ outputs:
         - traits
         - traitsui
         - pyface
-        - pyiges
         - {{ pin_subpackage('loadskernel', exact=True) }}
     test:
       imports:
