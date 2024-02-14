@@ -20,10 +20,10 @@ build:
 
 requirements:
   host:
-    - python >=3.8 <3.11
+    - python >=3.8,<3.11
     - pip
   run:
-    - python >=3.8 <3.11
+    - python >=3.8,<3.11
     - panelaero
     - matplotlib-base
     - numpy
@@ -51,9 +51,9 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.8 <3.11
+        - python >=3.8,<3.11
       run:
-        - python >=3.8 <3.11
+        - python >=3.8,<3.11
         - mpi4py
         - pyfmi
         - mayavi
