@@ -16,7 +16,7 @@ build:
     - loads-compare=loadscompare.compare:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -44,6 +44,27 @@ test:
     - loads-kernel --help
   requires:
     - pip
+
+outputs:
+  - name: loadskernel
+
+  - name: loadskernel-extras
+    requirements:
+      host:
+        - python >=3.8
+      run:
+        - python >=3.8
+        - mpi4py
+        - pyfmi
+        - mayavi
+        - traits
+        - traitsui
+        - pyface
+        - pyiges
+        - {{ pin_subpackage('loadskernel', exact=True) }}
+    test:
+      imports:
+        - loadskernel
 
 about:
   home: https://github.com/DLR-AE/LoadsKernel
