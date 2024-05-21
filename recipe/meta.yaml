@@ -1,14 +1,15 @@
 {% set name = "LoadsKernel" %}
-{% set version = "2024.5" %}
+{% set version = "2024.05" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/LoadsKernel-{{ version }}.tar.gz
-  sha256: 36b349844109820083a810ff0b24dae53df30413f1efec4fd2653769d3ba109f
-
+  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2024.05.tar.gz
+  sha256: 3a4cd4c881bf071968f4240b02a013e4a9118fa29d6709d82d13ac01d5aa4a4a
+  # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
+  
 build:
   entry_points:
     - loads-kernel=loadskernel.program_flow:command_line_interface
