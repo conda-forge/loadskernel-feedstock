@@ -1,5 +1,5 @@
 {% set name = "LoadsKernel" %}
-{% set version = "2024.2" %}
+{% set version = "2024.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/LoadsKernel-{{ version }}.tar.gz
-  sha256: 887fe7b72ccd1a2c0eeacee21460bf2ed1dfeef61c6304b227c503a87590089c
+  sha256: 36b349844109820083a810ff0b24dae53df30413f1efec4fd2653769d3ba109f
 
 build:
   entry_points:
@@ -16,14 +16,14 @@ build:
     - loads-compare=loadscompare.compare:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
-    - python >=3.8,<3.11
+    - python >=3.10
     - pip
   run:
-    - python >=3.8,<3.11
+    - python >=3.10
     - panelaero
     - matplotlib-base
     - numpy
@@ -51,19 +51,15 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.8,<3.11
+        - python >=3.10
       run:
-        - python >=3.8,<3.11
+        - python >=3.10
         - mpi4py
-        - pyfmi
         - mayavi
         - traits
         - traitsui
         - pyface
-        - pytest
-        - pytest-cov
         - jupyter
-        - jupyter-book ==0.15.1
         - {{ pin_subpackage('loadskernel', exact=True) }}
     test:
       imports:
@@ -71,7 +67,7 @@ outputs:
 
 about:
   home: https://github.com/DLR-AE/LoadsKernel
-  summary: The Loads Kernel Software allows for the calculation of quasi-steady and dynamic maneuver loads,
+  summary: The Loads Kernel Software allows for the calculation of aircraft loads.
   license: BSD-3-Clause
   license_file: LICENSE
 
