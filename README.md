@@ -7,7 +7,7 @@ Home: https://github.com/DLR-AE/LoadsKernel
 
 Package license: BSD-3-Clause
 
-Summary: The Loads Kernel Software allows for the calculation of quasi-steady and dynamic maneuver loads,
+Summary: The Loads Kernel Software allows for the calculation of aircraft loads.
 
 Current build status
 ====================
