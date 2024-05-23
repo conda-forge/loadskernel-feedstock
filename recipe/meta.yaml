@@ -17,7 +17,7 @@ build:
     - loads-compare=loadscompare.compare:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 3
 
 requirements:
   host:
@@ -61,7 +61,7 @@ outputs:
         - traitsui
         - pyface
         - jupyter
-        - {{ pin_subpackage('loadskernel', exact=True) }}
+        - {{ pin_subpackage('loadskernel') }}
     test:
       imports:
         - loadskernel
