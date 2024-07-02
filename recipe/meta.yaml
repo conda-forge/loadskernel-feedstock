@@ -1,13 +1,13 @@
 {% set name = "LoadsKernel" %}
-{% set version = "2024.5" %}
+{% set version = "2024.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2024.05.tar.gz
-  sha256: 3a4cd4c881bf071968f4240b02a013e4a9118fa29d6709d82d13ac01d5aa4a4a
+  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2024.06.tar.gz
+  sha256: 8de886748eb66b48481608186a4cee63d6000d902ebcd5680347348959ae9b4c
   # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
   
 build:
@@ -17,7 +17,7 @@ build:
     - loads-compare=loadscompare.compare:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 3
+  number: 0
 
 requirements:
   host:
