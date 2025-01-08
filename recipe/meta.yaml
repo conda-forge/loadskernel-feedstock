@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2025.01.tar.gz
-  sha256: a93bdba0076f45368f813d5cfcfccc27a466090ac94daa07f25a84c92e01bfb9
+  sha256: f808cfa5ff3aa247c15c68c9afa837d2aadee16a22098c7abe9865131a77a47d
   # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
   
 build:
