@@ -18,13 +18,12 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  # I dopped support for Python <3.10 long ago and haven't tested beyond Python 3.12 yet.
-  skip: true # [py<310 or py>312]
 
 requirements:
   host:
     - python
     - pip
+    - setuptools
   run:
     - python
     - panelaero
