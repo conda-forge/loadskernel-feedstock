@@ -1,13 +1,13 @@
 {% set name = "LoadsKernel" %}
-{% set version = "2024.6" %}
+{% set version = "2025.01" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2024.06.tar.gz
-  sha256: 8de886748eb66b48481608186a4cee63d6000d902ebcd5680347348959ae9b4c
+  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2025.01.tar.gz
+  sha256: a93bdba0076f45368f813d5cfcfccc27a466090ac94daa07f25a84c92e01bfb9
   # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
   
 build:
@@ -18,13 +18,15 @@ build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  # I dopped support for Python <3.10 long ago and haven't tested beyond Python 3.12 yet.
+  skip: true # [py<310 or py>312]
 
 requirements:
   host:
-    - python >=3.10,<3.12
+    - python
     - pip
   run:
-    - python >=3.10,<3.12
+    - python
     - panelaero
     - matplotlib-base
     - numpy
@@ -52,9 +54,9 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.10,<3.12
+        - python
       run:
-        - python >=3.10,<3.12
+        - python
         - mpi4py
         - mayavi
         - traits
