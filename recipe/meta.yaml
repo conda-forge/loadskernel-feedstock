@@ -1,13 +1,13 @@
 {% set name = "LoadsKernel" %}
-{% set version = "2024.6" %}
+{% set version = "2025.01" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2024.06.tar.gz
-  sha256: 8de886748eb66b48481608186a4cee63d6000d902ebcd5680347348959ae9b4c
+  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2025.01.tar.gz
+  sha256: f808cfa5ff3aa247c15c68c9afa837d2aadee16a22098c7abe9865131a77a47d
   # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
   
 build:
@@ -21,10 +21,11 @@ build:
 
 requirements:
   host:
-    - python >=3.10,<3.12
+    - python
     - pip
+    - setuptools
   run:
-    - python >=3.10,<3.12
+    - python
     - panelaero
     - matplotlib-base
     - numpy
@@ -52,9 +53,9 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.10,<3.12
+        - python
       run:
-        - python >=3.10,<3.12
+        - python
         - mpi4py
         - mayavi
         - traits
