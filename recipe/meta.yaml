@@ -17,15 +17,15 @@ build:
     - loads-compare=loadscompare.compare:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}
     - panelaero
     - matplotlib-base
     - numpy
@@ -46,6 +46,7 @@ test:
     - loads-kernel --help
   requires:
     - pip
+    - python {{ python_min }}
 
 outputs:
   - name: loadskernel
@@ -53,9 +54,9 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python
+        - python {{ python_min }}
       run:
-        - python
+        - python >={{ python_min }}
         - mpi4py
         - mayavi
         - traits
@@ -64,6 +65,8 @@ outputs:
         - jupyter
         - {{ pin_subpackage('loadskernel') }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - loadskernel
 
