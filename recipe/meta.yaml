@@ -1,13 +1,10 @@
-{% set name = "LoadsKernel" %}
-{% set version = "2026.01" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: loadskernel
+  version: "2026.05"
 
 source:
-  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2026.01.tar.gz
-  sha256: 6fbb76be6766d1eb6c3850d89c48ed25b12be1592910def4dfa3bf16f8c8c53b
+  url: https://github.com/DLR-AE/LoadsKernel/archive/refs/tags/2026.05.tar.gz
+  sha256: e451a021e2519c616a7aca7354a06d5a0c668140b97abaa0795ebbc644619579
   # generated with curl -sL <url/to/*.tar.gz> | openssl sha256
   
 build:
@@ -15,25 +12,26 @@ build:
     - loads-kernel=loadskernel.program_flow:command_line_interface
     - model-viewer=modelviewer.view:command_line_interface
     - loads-compare=loadscompare.compare:command_line_interface
+    - response-viewer=responseviewer.view:command_line_interface
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   host:
-    - python >=3.10,<3.14
+    - python >=3.12,<3.14
     - pip
     - setuptools
   run:
-    - python >=3.10,<3.14
+    - python >=3.12,<3.14
     - panelaero
     - matplotlib-base
-    - numpy <2.4.0
+    - numpy >2.0,<2.4.0
     - scipy
     - h5py
     - pytables
     - pyyaml
-    - pandas <3.0.0
+    - pandas
 
 test:
   imports:
@@ -52,9 +50,9 @@ outputs:
   - name: loadskernel-extras
     requirements:
       host:
-        - python >=3.10,<3.14
+        - python >=3.12,<3.14
       run:
-        - python >=3.10,<3.14
+        - python >=3.12,<3.14
         - mpi4py
         - mayavi
         - traits
@@ -62,7 +60,6 @@ outputs:
         - pyside6
         - jupyter
         - pyfmi
-        - pyside6
         - {{ pin_subpackage('loadskernel') }}
     test:
       imports:
